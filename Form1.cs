@@ -907,6 +907,11 @@ namespace Tic_Tac_Game
             }
             #endregion
 
+            // check if there is a tie game
+            if (checkTie())
+            {
+                displayTie();
+            }
             return false;
         }
 
@@ -942,6 +947,11 @@ namespace Tic_Tac_Game
             MessageBox.Show("Player " + pTurn + " has won!", "Congratulations!");
         }
 
+        private void displayTie()
+        {
+            MessageBox.Show("The game is tied.", "No Winner");
+        }
+
         private void newGameStarted(object sender, EventArgs e)
         {
             foreach (Button btn in btnArray)
@@ -969,6 +979,24 @@ namespace Tic_Tac_Game
         private void showInstructions(object sender, EventArgs e)
         {
             MessageBox.Show("First, have each player select a unique character to identify themselves.\n\nNext, take turns placing your character on the grid of buttons.\n\nThe first player to get four in a row, either horizontally, vertically, or diagonally, wins!\n\nGood Luck!", "Instructions");
+        }
+
+        private bool checkTie()
+        {
+            bool tie = false;
+
+            foreach (Button btn in btnArray)
+            {
+                if (btn.Enabled == true)
+                {
+                    tie = false;
+                    return tie; // if a button is enabled the game is still running
+                } else
+                {
+                    tie = true; // if all buttons are disabled, tie game
+                }
+            }
+            return tie;
         }
     }
 }
