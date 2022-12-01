@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -111,7 +112,6 @@ namespace Tic_Tac_Game
             p2combobox.EndUpdate();
             p3combobox.EndUpdate();
         }
-
 
         private void setPlayerLetter(object sender, EventArgs e)
         {
@@ -223,6 +223,14 @@ namespace Tic_Tac_Game
 
                 if (line.Contains(player)) // check line for winner
                 {
+                    int win = line.IndexOf(player);
+                    string n = btnArray[row, win].Text;
+                    while (n == p)
+                    {
+                        btnArray[row, win].BackColor = Color.LightGreen;
+                        win++;
+                        n= btnArray[row, win].Text;
+                    }
                     return true;
                 } else
                 {
@@ -240,6 +248,14 @@ namespace Tic_Tac_Game
 
                 if (line.Contains(player)) // check line for winner
                 {
+                    int win = line.IndexOf(player);
+                    string n = btnArray[win, col].Text;
+                    while (n == p)
+                    {
+                        btnArray[win, col].BackColor = Color.LightGreen;
+                        win++;
+                        n = btnArray[win, col].Text;
+                    }
                     return true;
                 } else
                 {
@@ -257,6 +273,10 @@ namespace Tic_Tac_Game
 
             if (line.Contains(player)) // check line for winner
             {
+                for (int row = 4, col = 0; row < 8; row++, col++)
+                {
+                    btnArray[row, col].BackColor = Color.LightGreen;
+                }
                 return true;
             }
             else
@@ -271,6 +291,22 @@ namespace Tic_Tac_Game
 
             if (line.Contains(player)) // check line for winner
             {
+                int win = line.IndexOf(player);
+                int row = win + 3;
+                string n = btnArray[row, win].Text;
+                while (n == p)
+                {
+                    btnArray[row, win].BackColor = Color.LightGreen;
+                    row++;
+                    win++;
+                    if (row < 8 && win < 8)
+                    {
+                        n = btnArray[row, win].Text;
+                    } else
+                    {
+                        break;
+                    }
+                }
                 return true;
             }
             else
@@ -285,6 +321,23 @@ namespace Tic_Tac_Game
 
             if (line.Contains(player)) // check line for winner
             {
+                int win = line.IndexOf(player);
+                int row = win + 2;
+                string n = btnArray[row, win].Text;
+                while (n == p)
+                {
+                    btnArray[row, win].BackColor = Color.LightGreen;
+                    row++;
+                    win++;
+                    if (row < 8 && win < 8)
+                    {
+                        n = btnArray[row, win].Text;
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
                 return true;
             }
             else
@@ -299,6 +352,23 @@ namespace Tic_Tac_Game
 
             if (line.Contains(player)) // check line for winner
             {
+                int win = line.IndexOf(player);
+                int row = win + 1;
+                string n = btnArray[row, win].Text;
+                while (n == p)
+                {
+                    btnArray[row, win].BackColor = Color.LightGreen;
+                    row++;
+                    win++;
+                    if (row < 8 && win < 8)
+                    {
+                        n = btnArray[row, win].Text;
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
                 return true;
             }
             else
@@ -313,6 +383,21 @@ namespace Tic_Tac_Game
 
             if (line.Contains(player)) // check line for winner
             {
+                int win = line.IndexOf(player);
+                string n = btnArray[win, win].Text;
+                while (n == p)
+                {
+                    btnArray[win, win].BackColor = Color.LightGreen;
+                    win++;
+                    if (win < 8)
+                    {
+                        n = btnArray[win, win].Text;
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
                 return true;
             }
             else
@@ -327,6 +412,23 @@ namespace Tic_Tac_Game
 
             if (line.Contains(player)) // check line for winner
             {
+                int win = line.IndexOf(player);
+                int col = win + 1;
+                string n = btnArray[win, col].Text;
+                while (n == p)
+                {
+                    btnArray[win, col].BackColor = Color.LightGreen;
+                    col++;
+                    win++;
+                    if (col < 8 && win < 8)
+                    {
+                        n = btnArray[win, col].Text;
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
                 return true;
             }
             else
@@ -341,6 +443,23 @@ namespace Tic_Tac_Game
 
             if (line.Contains(player)) // check line for winner
             {
+                int win = line.IndexOf(player);
+                int col = win + 2;
+                string n = btnArray[win, col].Text;
+                while (n == p)
+                {
+                    btnArray[win, col].BackColor = Color.LightGreen;
+                    col++;
+                    win++;
+                    if (col < 8 && win < 8)
+                    {
+                        n = btnArray[win, col].Text;
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
                 return true;
             }
             else
@@ -355,6 +474,23 @@ namespace Tic_Tac_Game
 
             if (line.Contains(player)) // check line for winner
             {
+                int win = line.IndexOf(player);
+                int col = win + 3;
+                string n = btnArray[win, col].Text;
+                while (n == p)
+                {
+                    btnArray[win, col].BackColor = Color.LightGreen;
+                    col++;
+                    win++;
+                    if (col < 8 && win < 8)
+                    {
+                        n = btnArray[win, col].Text;
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
                 return true;
             }
             else
@@ -369,6 +505,10 @@ namespace Tic_Tac_Game
 
             if (line.Contains(player)) // check line for winner
             {
+                for (int row = 0, col = 4; col < 8; row++, col++)
+                {
+                    btnArray[row, col].BackColor = Color.LightGreen;
+                }
                 return true;
             }
             else
@@ -384,7 +524,11 @@ namespace Tic_Tac_Game
 
             if (line.Contains(player)) // check line for winner
             {
-                return true;
+                for (int row = 0, col = 3; col >= 0; row++, col--)
+                {
+                    btnArray[row, col].BackColor = Color.LightGreen;
+                }
+                    return true;
             }
             else
             {
@@ -398,6 +542,36 @@ namespace Tic_Tac_Game
 
             if (line.Contains(player)) // check line for winner
             {
+                int win = line.IndexOf(player);
+                int col = 0;
+                switch (win)
+                {
+                    case 0:
+                        {
+                            col = 4;
+                            break;
+                        }
+                    case 1:
+                        {
+                            col = 3;
+                            break;
+                        }
+                }
+                string n = btnArray[win, col].Text;
+                while (n == p)
+                {
+                    btnArray[win, col].BackColor = Color.LightGreen;
+                    col--;
+                    win++;
+                    if (col >= 0 && win < 8)
+                    {
+                        n = btnArray[win, col].Text;
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
                 return true;
             }
             else
@@ -412,6 +586,41 @@ namespace Tic_Tac_Game
 
             if (line.Contains(player)) // check line for winner
             {
+                int win = line.IndexOf(player);
+                int col = 0;
+                switch (win)
+                {
+                    case 0:
+                        {
+                            col = 5;
+                            break;
+                        }
+                    case 1:
+                        {
+                            col = 4;
+                            break;
+                        }
+                    case 2:
+                        {
+                            col = 3;
+                            break;
+                        }
+                }
+                string n = btnArray[win, col].Text;
+                while (n == p)
+                {
+                    btnArray[win, col].BackColor = Color.LightGreen;
+                    col--;
+                    win++;
+                    if (col >= 0 && win < 8)
+                    {
+                        n = btnArray[win, col].Text;
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
                 return true;
             }
             else
@@ -426,6 +635,46 @@ namespace Tic_Tac_Game
 
             if (line.Contains(player)) // check line for winner
             {
+                int win = line.IndexOf(player);
+                int col = 0;
+                switch (win)
+                {
+                    case 0:
+                        {
+                            col = 6;
+                            break;
+                        }
+                    case 1:
+                        {
+                            col = 5;
+                            break;
+                        }
+                    case 2:
+                        {
+                            col = 4;
+                            break;
+                        }
+                    case 3:
+                        {
+                            col = 3;
+                            break;
+                        }
+                }
+                string n = btnArray[win, col].Text;
+                while (n == p)
+                {
+                    btnArray[win, col].BackColor = Color.LightGreen;
+                    col--;
+                    win++;
+                    if (col >= 0 && win < 8)
+                    {
+                        n = btnArray[win, col].Text;
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
                 return true;
             }
             else
@@ -440,6 +689,51 @@ namespace Tic_Tac_Game
 
             if (line.Contains(player)) // check line for winner
             {
+                int win = line.IndexOf(player);
+                int col = 0;
+                switch (win)
+                {
+                    case 0:
+                        {
+                            col = 7;
+                            break;
+                        }
+                    case 1:
+                        {
+                            col = 6;
+                            break;
+                        }
+                    case 2:
+                        {
+                            col = 5;
+                            break;
+                        }
+                    case 3:
+                        {
+                            col = 4;
+                            break;
+                        }
+                    case 4:
+                        {
+                            col = 3;
+                            break;
+                        }
+                }
+                string n = btnArray[win, col].Text;
+                while (n == p)
+                {
+                    btnArray[win, col].BackColor = Color.LightGreen;
+                    col--;
+                    win++;
+                    if (col >= 0 && win < 8)
+                    {
+                        n = btnArray[win, col].Text;
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
                 return true;
             }
             else
@@ -454,6 +748,46 @@ namespace Tic_Tac_Game
 
             if (line.Contains(player)) // check line for winner
             {
+                int win = line.IndexOf(player) + 1;
+                int col = 0;
+                switch (win)
+                {
+                    case 1:
+                        {
+                            col = 7;
+                            break;
+                        }
+                    case 2:
+                        {
+                            col = 6;
+                            break;
+                        }
+                    case 3:
+                        {
+                            col = 5;
+                            break;
+                        }
+                    case 4:
+                        {
+                            col = 4;
+                            break;
+                        }
+                }
+                string n = btnArray[win, col].Text;
+                while (n == p)
+                {
+                    btnArray[win, col].BackColor = Color.LightGreen;
+                    col--;
+                    win++;
+                    if (win < 8)
+                    {
+                        n = btnArray[win, col].Text;
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
                 return true;
             }
             else
@@ -468,6 +802,41 @@ namespace Tic_Tac_Game
 
             if (line.Contains(player)) // check line for winner
             {
+                int win = line.IndexOf(player) + 2;
+                int col = 0;
+                switch (win)
+                {
+                    case 2:
+                        {
+                            col = 7;
+                            break;
+                        }
+                    case 3:
+                        {
+                            col = 6;
+                            break;
+                        }
+                    case 4:
+                        {
+                            col = 5;
+                            break;
+                        }
+                }
+                string n = btnArray[win, col].Text;
+                while (n == p)
+                {
+                    btnArray[win, col].BackColor = Color.LightGreen;
+                    col--;
+                    win++;
+                    if (win < 8)
+                    {
+                        n = btnArray[win, col].Text;
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
                 return true;
             }
             else
@@ -482,6 +851,36 @@ namespace Tic_Tac_Game
 
             if (line.Contains(player)) // check line for winner
             {
+                int win = line.IndexOf(player) + 3;
+                int col = 0;
+                switch (win)
+                {
+                    case 3:
+                        {
+                            col = 7;
+                            break;
+                        }
+                    case 4:
+                        {
+                            col = 6;
+                            break;
+                        }
+                }
+                string n = btnArray[win, col].Text;
+                while (n == p)
+                {
+                    btnArray[win, col].BackColor = Color.LightGreen;
+                    col--;
+                    win++;
+                    if (win < 8)
+                    {
+                        n = btnArray[win, col].Text;
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
                 return true;
             }
             else
@@ -496,6 +895,10 @@ namespace Tic_Tac_Game
 
             if (line.Contains(player)) // check line for winner
             {
+                for (int row = 4, col = 7; row < 8; row++, col--)
+                {
+                    btnArray[row, col].BackColor = Color.LightGreen;
+                }
                 return true;
             }
             else
@@ -544,7 +947,10 @@ namespace Tic_Tac_Game
             foreach (Button btn in btnArray)
             {
                 btn.Text = " ";
+                btn.BackColor = Color.White;
                 btn.Enabled = true;
+                pTurn = 1;
+                turnLabel.Text = "Player One Turn";
             }
 
             DialogResult dr = MessageBox.Show("Would you like to reset your characters?", "Reset Characters?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
